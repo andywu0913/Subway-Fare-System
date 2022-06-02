@@ -14,7 +14,7 @@ import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 
-import server.domain.TicketTransaction;
+import server.domain.TicketTransactionMessage;
 
 @Configuration
 @EnableKafka
@@ -41,16 +41,16 @@ public class KafkaConsumerConfig {
   }
 
   @Bean
-  public ConsumerFactory<String, TicketTransaction> consumerFactory() {
+  public ConsumerFactory<String, TicketTransactionMessage> consumerFactory() {
     return new DefaultKafkaConsumerFactory<>(
         consumerConfigs(),
         new StringDeserializer(),
-        new JsonDeserializer<>(TicketTransaction.class));
+        new JsonDeserializer<>(TicketTransactionMessage.class));
   }
 
   @Bean
-  public ConcurrentKafkaListenerContainerFactory<String, TicketTransaction> kafkaListenerContainerFactory() {
-    ConcurrentKafkaListenerContainerFactory<String, TicketTransaction> factory = new ConcurrentKafkaListenerContainerFactory<>();
+  public ConcurrentKafkaListenerContainerFactory<String, TicketTransactionMessage> kafkaListenerContainerFactory() {
+    ConcurrentKafkaListenerContainerFactory<String, TicketTransactionMessage> factory = new ConcurrentKafkaListenerContainerFactory<>();
     factory.setConsumerFactory(consumerFactory());
 
     return factory;

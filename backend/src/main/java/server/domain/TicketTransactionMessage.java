@@ -1,12 +1,12 @@
 package server.domain;
 
-public class TicketTransaction {
+public class TicketTransactionMessage {
   private String method;
   private String stationID;
   private String ticketID;
   private long timestamp;
 
-  public TicketTransaction() {
+  public TicketTransactionMessage() {
   }
 
   public String getMethod() {
