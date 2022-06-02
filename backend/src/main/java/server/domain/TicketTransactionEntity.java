@@ -49,7 +49,7 @@ public class TicketTransactionEntity {
     private Timestamp createAt;
 
     @UpdateTimestamp
-    @Column(name = "update_at", columnDefinition = "TIMESTAMP DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP", updatable = false, insertable = false)
+    @Column(name = "update_at", columnDefinition = "TIMESTAMP DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP", insertable = false)
     private Timestamp updateAt;
 
     public TicketTransactionEntity() {
