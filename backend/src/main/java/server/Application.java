@@ -4,6 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.kafka.annotation.KafkaListener;
 
+import server.domain.TicketTransaction;
+
 @SpringBootApplication
 public class Application {
   public static void main(String[] args) {
@@ -11,7 +13,7 @@ public class Application {
   }
 
   @KafkaListener(topics = "${spring.kafka.consumer.topics}")
-  public void listen(TicketTransaction ticketTx) throws InterruptedException {
+  public void kafkaTicketTxListener(TicketTransaction ticketTx) throws InterruptedException {
     System.out.println(ticketTx);
     System.out.println(ticketTx.getMethod());
     System.out.println(ticketTx.getStationID());

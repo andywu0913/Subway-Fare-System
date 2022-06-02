@@ -1,4 +1,4 @@
-package server;
+package server.domain;
 
 public class TicketTransaction {
   private String method;
