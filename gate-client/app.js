@@ -1,12 +1,13 @@
 const express = require('express');
-const path = require('path');
 
 const app = express();
 
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'public')));
 
+// The API to mock a passenger has swiped his ticket entering the speed gate.
 app.use(require('./routes/enter'));
+
+// The API to mock a passenger has swiped his ticket exiting the speed gate.
 app.use(require('./routes/exit'));
 
 module.exports = app;

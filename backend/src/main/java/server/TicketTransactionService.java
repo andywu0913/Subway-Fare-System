@@ -14,6 +14,9 @@ public class TicketTransactionService {
     @Autowired
     private TicketTransactionRepository ticketTransactionRepository;
 
+    /**
+     * The business logic for processing the message of entering the gate.
+     */
     public void enter(TicketTransactionMessage ticketTxMsg) {
         TicketTransactionEntity ticketTx = new TicketTransactionEntity();
         try {
@@ -35,6 +38,9 @@ public class TicketTransactionService {
         }
     }
 
+    /**
+     * The business logic for processing the message of exiting the gate.
+     */
     public void exit(TicketTransactionMessage ticketTxMsg) {
         TicketTransactionEntity ticketTx = new TicketTransactionEntity();
         try {
@@ -56,6 +62,9 @@ public class TicketTransactionService {
         }
     }
 
+    /**
+     * A helper function used to persist ticket record into database.
+     */
     private void persistTicketTransaction(TicketTransactionEntity ticketTx, ProcessingStatus status) {
         try {
             ticketTx.setProcessingSataus(status);

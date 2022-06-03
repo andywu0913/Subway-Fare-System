@@ -4,6 +4,13 @@ const { producer: kafkaProducer } = require('../manager/kafka');
 
 const router = express.Router();
 
+/**
+ * The API to mock a passenger has swiped his ticket entering the speed gate.
+ *
+ * @param {Object} body Swipe action object
+ * @param {String} body.stationID The ID of the station that the passenger enters
+ * @param {String} body.ticketID The ID of the ticket that the passenger uses
+ */
 router.post('/enter', async (req, res) => {
   const { stationID, ticketID } = req.body;
   try {
